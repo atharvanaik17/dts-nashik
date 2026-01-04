@@ -14,7 +14,7 @@ const MainHeader = ({ t }) => {
       <div className="container header-row">
         <div className="logo-emblem" aria-hidden="false">
           <img 
-            src="/assets/images/maharashtra-police-logo.png" 
+            src="/assets/images/mp.png" 
             alt="Maharashtra Police emblem" 
             onError={handleImageError}
           />
@@ -33,13 +33,7 @@ const MainHeader = ({ t }) => {
               onError={handleImageError}
             />
           </div>
-          <div className="govt-logo" title="Government of Maharashtra">
-            <img 
-              src="/assets/images/maharashtra-emblem.png" 
-              alt="Maharashtra Government emblem" 
-              onError={handleImageError}
-            />
-          </div>
+          
         </div>
       </div>
     </header>

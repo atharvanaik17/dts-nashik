@@ -33,25 +33,43 @@ export const Hero = ({ t }) => {
 // ========== Stats.js ==========
 export const Stats = ({ t }) => {
   const stats = [
-    { icon: '🎓', number: '5000+', label: t('stat_officers') },
-    { icon: '📚', number: '230+', label: t('stat_sessions') },
-    { icon: '🏢', number: '200', label: t('stat_capacity') },
-    { icon: '⭐', number: '38+', label: t('stat_years') },
-    { icon: '🏆', number: 'ISO 9001', label: t('stat_cert') }
+    { icon: '🎓', number: '5000+', label: 'Officers Trained' },
+    { icon: '📚', number: '230+', label: 'Training Sessions' },
+    { icon: '🏢', number: '200', label: 'Training Capacity' },
+    { icon: '⭐', number: '38+', label: 'Years of Excellence' },
+    { icon: '🏆', number: 'ISO 9001', label: 'Certified' }
   ];
 
   return (
-    <section className="stats" aria-labelledby="stats-heading">
-      <div className="container">
-        <h2 id="stats-heading" className="sr-only">Training Statistics</h2>
-        <div className="stats-grid" role="list" aria-label="Key statistics">
-          {stats.map((stat, idx) => (
-            <div key={idx} className="stat-item" role="listitem">
-              <div className="stat-icon" aria-hidden="true">{stat.icon}</div>
-              <div className="stat-number">{stat.number}</div>
-              <div className="stat-label">{stat.label}</div>
-            </div>
-          ))}
+    <section className="stats-section" aria-labelledby="stats-heading">
+      <div className="stats-wrapper">
+        <div className="stats-background">
+          <img 
+            src="/assets/images/screenshot-3.png"
+            alt=""
+            onError={(e) => {
+              console.log('❌ Image failed to load:', e.target.src);
+              e.target.style.display = 'none';
+            }}
+            onLoad={() => console.log('✅ Image loaded successfully')}
+          />
+        </div>
+        
+        <div className="stats-overlay"></div>
+        
+        <div className="stats-content">
+          <h2 id="stats-heading" className="sr-only">
+            Training Statistics
+          </h2>
+          <div className="stats-grid">
+            {stats.map((stat, idx) => (
+              <div key={idx} className="stat-item">
+                <div className="stat-icon" aria-hidden="true">{stat.icon}</div>
+                <div className="stat-number">{stat.number}</div>
+                <div className="stat-label">{stat.label}</div>
+              </div>
+            ))}
+          </div>
         </div>
       </div>
     </section>
@@ -59,29 +77,25 @@ export const Stats = ({ t }) => {
 };
 
 // ========== PhotosSection.js ==========
-export const PhotosSection = () => {
+export const PhotosSection = ({ t }) => {
   const photos = [
     {
-      src: 'https://via.placeholder.com/400x250/1e40af/ffffff?text=Training+Building',
-      alt: 'A.D.G. pic',
-      title: 'ADG',
-      description: 'Messages of ADG'
+      src: '/assets/images/ADG.jpg',
+      alt: t('photos.adg.alt'),
+      title: t('photos.adg.title'),
+      description: t('photos.adg.description'),
     },
     {
-      src: 'https://via.placeholder.com/400x250/059669/ffffff?text=Forensic+Lab',
-      alt: 'DTS pic',
-      title: 'DTS Director',
-      description: 'DTS Director message'
+      src: '/assets/images/DTSd.jpg',
+      alt: t('photos.dts.alt'),
+      title: t('photos.dts.title'),
+      description: t('photos.dts.description'),
     },
-    {
-      src: 'https://via.placeholder.com/400x250/f59e0b/ffffff?text=Hostel+Facility',
-      alt: 'Person 3 pic',
-      title: 'Person 3',
-      description: 'Person 3 message'
-    }
   ];
 
-  return (
+  
+
+ return (
     <section className="photos-section" aria-labelledby="photos-heading">
       <div className="photos-grid">
         {photos.map((photo, idx) => (

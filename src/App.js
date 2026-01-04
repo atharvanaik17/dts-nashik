@@ -22,8 +22,16 @@ function App() {
 
   // Translation function
   const t = (key) => {
-    return translations[language]?.[key] || translations.en[key] || key;
-  };
+  const getNested = (obj, path) =>
+    path.split('.').reduce((acc, part) => acc && acc[part], obj);
+
+  return (
+    getNested(translations[language], key) ||
+    getNested(translations.en, key) ||
+    key
+  );
+};
+
 
   useEffect(() => {
     // Initialize accessibility features
@@ -92,11 +100,14 @@ function App() {
       <main id="main-content" tabindex="-1">
         <Hero t={t} />
         <Stats t={t} />
-        <PhotosSection />
+        <PhotosSection t={t} />
+
         <About t={t} />
         <Training t={t} />
         <News t={t} />
         <Facilities t={t} />
+       
+
       </main>
 
       {/* Footer */}
